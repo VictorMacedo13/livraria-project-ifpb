@@ -1,0 +1,40 @@
+.dados-usuario{
+	display: flex;
+	justify-content: center;
+	border: thin;
+	border-color: black;
+	border-style: ridge;
+	width: 40%;
+}
+.div-flex{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+.linha-span{
+	padding-top: 100px;
+}
+
+.alterar-usuario{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-left: 50px;
+	
+}
+
+#historico{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	border: thin;
+	border-color: black;
+	border-style: ridge;
+	width: 40%;
+}
+#historico .dados{
+	margin: 2%;
+}

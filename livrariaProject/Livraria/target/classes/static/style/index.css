@@ -1,0 +1,265 @@
+*{
+    text-decoration: none;
+    list-style: none;
+    font-family: 'Montserrat', sans-serif;
+}
+
+body{
+	
+    padding: 0;
+    margin: 0;
+    background: #f1f1f1;
+    min-height: 100vh;
+}
+
+.cabecalho{
+    margin-left: 250px;
+}
+
+.search-box{
+    padding-top: 1%;
+    display: flex;
+    justify-content: center;
+}
+
+.search-bar{
+    border: 0px;
+    box-shadow: 0px 0px 0.3em #666;
+    background: none;
+    outline: none;
+    border-radius: 6px;
+    width: 28%;
+    height: 35px;
+    font-size: 15px;
+    background-color: #fff;
+}
+
+.search-button{
+    margin-left: 1%;
+    width: 3%;
+    background: #fff;
+    border-radius: 6px;
+    box-shadow: 0px 0px 0.3em #666;
+    border: 0px;
+}
+
+.search-button:hover{
+    background: yellow;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+.sidebar{
+    position: fixed;
+    height: 100%;
+    width: 250px;
+    background: #17394a;
+    z-index: 1;
+}
+
+.logo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 13px;
+    color: #fff;
+}
+.logo i{
+    color: #fff;
+    font-size: 20px;
+    margin-right: 2%;
+}
+
+.menu a{
+
+	border-radius: 10px 0 0 10px;
+	background-color: #3f80a1;
+    color: #fff;
+    display: block;
+    padding: 12px 10px 12px 32px;
+    margin-bottom: 5px;
+	border-right: 5px double #17394a;
+
+}
+
+
+.menu span{
+	border-radius: 10px 0 0 10px;
+    background-color: #3f80a1;
+    color: #fff;
+    display: block;
+    padding: 12px 10px 12px 32px;
+    margin-bottom: 5px;
+    border-right: 5px double #17394a;
+}
+.menu span:hover{
+    cursor: pointer;
+    color: #17394a;
+    background-color: yellow;
+    border-radius: 10px 0 0 10px;
+}
+	.menu a:hover{
+    color: #17394a;
+    background-color: yellow;
+    border-radius: 10px 0 0 10px;
+}
+#pai {
+    display: none;  
+}
+
+#mae{
+	display: none;
+}
+.submenu .active{
+    display: block;
+}
+.login{
+	
+    display: flex;
+    background-color: #fff;
+    color: #17394a;
+    font-size: 20px;
+    position: fixed;
+    right: 50px;
+    top: 11px;
+    padding: 0.3%;
+    /* background-color: yellow; */
+    border-radius: 5px;
+    /* box-shadow: 0px 0px 0.2em #666; */
+    margin-left: 4%;
+}
+
+.login a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #17394a;
+    font-weight: bold;
+}
+
+.login a:hover{
+  color: black;
+}
+
+.login a i{
+	padding-right: 2px;
+}
+.login:hover{
+    background-color: #fff;
+    transition: 0.1s;
+
+}
+
+.carrinho-button{
+    color: #17394a;
+    font-size: 25px;
+    position: fixed;
+    bottom: 0px;
+    right: 0px; 
+    padding: 1%;
+    margin: 2%;
+    background: yellow;
+    border-radius: 50%;
+    box-shadow: 0px 0px 0.3em #666;
+}
+ 
+
+.promo{
+	color: white;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 80%;
+	margin-left: 295px;
+	margin-top: 50px;
+	padding-right: 15px;
+	padding-left: 15px;
+	background-color: #17394a;
+	box-shadow: 0px 0px 0.8em #dedede;
+	padding-bottom: 30px;
+	border-radius: 25px;
+}
+
+.livros .titulo{
+	color: white;
+}
+
+.livros .preco{
+	color: chartreuse;
+}
+
+
+.livros{
+	display: flex;
+}
+
+.livros .livro{
+	background-color: #17394a;
+	box-shadow: 0px 0px 2em #fff;
+	margin-left: 50px;
+	margin-right: 50px;
+}
+
+.main{
+	display: flex;
+    flex-wrap: wrap;
+}
+
+main{
+	background-color: #fff;
+    width: 80%;
+    height: 100%;
+    padding-left: 0px;
+    padding-right: 30px;
+    margin-top: 100px;
+    margin-left: 295px;
+    box-shadow: 0px 0px 0.8em #dedede;
+    padding-bottom: 30px;
+    margin-bottom: 60px;
+}
+
+main h3{
+	display: block;
+	padding: 1%;
+	font-size: 24px;
+}
+
+.livro{
+	font-size: 12px;
+	border:solid 1px;
+    background-color: #fff;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: 50px;
+    margin-bottom: 0px;
+    margin-top: 20px;
+    padding: 9px;
+}
+
+.titulo{
+	max-width: 120px; 
+	white-space: nowrap; 
+	overflow: hidden;
+	text-overflow: ellipsis; 
+}
+
+
+.capa{
+    width: 120px;
+    height: 168px;
+    padding: 10px;
+}
+.capa:hover{
+    width: 140px;
+    height: 188px;
+    padding: 0;
+}
+
+.preco{
+    color: green;
+    font-size: 15px;
+}

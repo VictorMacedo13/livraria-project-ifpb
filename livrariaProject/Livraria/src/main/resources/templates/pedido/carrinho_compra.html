@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head th:replace="~{index :: index-head}">
+</head>
+<head>
+    <link rel="stylesheet" th:href="@{/style/pedido/carrinho.css}">
+</head>
+<body>
+
+    <header th:replace="~{index :: index-header}"></header>
+    <form th:replace="~{index :: index-form}"></form>
+    <script th:replace="~{index :: index-script}"></script>
+    <a th:replace="~{index :: index-carrinho}"></a>
+	<main>
+		<div class="head-carrinho">
+	        <h1>Carrinho de Compras - ID da compra: [[${pedido.id}]]</h1>
+	        <span class="valor-total" th:inline="text">Valor total: R$ [[${pedido.valorTotal}]]</span><br/>
+		</div>
+
+        <form class="form-atualizar-pedido" method="post" th:action="@{/atualizar-pedido(id=${pedido.id}, usuario=${pedido.usuario.email})}" th:object="${pedido}">
+            <div class="itens" th:each="item, itemStat: *{itemPedido}">
+                <a th:href="@{/livro-info(ISBN=${item.livro.ISBN})}">
+                    <img class="capa" th:src="${item.livro.capa}" alt="">
+                </a>
+                <input hidden th:field="*{itemPedido[__${itemStat.index}__].id}" th:value="${item.id}"/>
+                <input hidden th:field="*{itemPedido[__${itemStat.index}__].livro}" th:value="${item.livro}"/>
+                <input hidden th:field="*{itemPedido[__${itemStat.index}__].pedido}" th:value="${item.pedido}"/>
+                <input hidden th:field="*{itemPedido[__${itemStat.index}__].valorUnidade}" th:value="${item.livro.preco}"/>
+                <div class="details">
+                    <span class="titulo" th:text="${item.livro.titulo}" id="titulo-livro">Titulo do Livro</span>
+                    <div class="preco">
+                        <p> R$: <span th:text="${item.livro.preco}" ></span></p>  
+                    </div>
+                    <div class="qtd">
+                        <span>Quantidade: </span>
+                        <select id="qtd-item-pedido" th:name="item-pedido"
+                            th:field="*{itemPedido[__${itemStat.index}__].quantidade}">
+                            <option
+                                th:value="${qtd}" th:text="${qtd}" 
+                                th:each="qtd: ${qtdNum}">
+                            </option>
+                        </select>
+                    </div>
+                </div>
+            </div> 
+            <div class="btn">
+            	<button class="btn-salvar" type="submit" th:if="${pedido.getItemPedido().size() > 0}"> Salvar alterações</button>
+            	<a class="btn-salvar"th:if="${pedido.getItemPedido().size() > 0}"  th:href="@{/finalizar(id=${pedido.id})}">Finalizar pedido</a>
+            </div>
+        </form>
+        
+    </main>
+</body>
+</html>

@@ -1,0 +1,53 @@
+main {
+    display: block;
+
+}
+
+.head-carrinho{
+	margin-left: 15%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+div.itens {
+    display: flex;
+    border: 1px solid #ddd;
+    margin-left: 2%;
+    margin-top: 1%;
+}
+
+div.details {
+    margin-left: 1%;
+}
+
+#titulo-livro {
+    font-size: x-large;
+    font-weight: bold;
+}
+
+
+
+.valor-total{
+	color: green;
+}
+
+.btn{
+	display: flex;
+	justify-content: center;
+}
+
+.btn-salvar{
+	background-color: yellow;
+	border: 1px solid #ddd;
+	padding: 0.5%;
+	width: 10%;
+	margin-top: 2%;
+}
+
+.btn-salvar:hover{
+	cursor: pointer;
+	background-color: rgb(202, 202, 0);
+
+}
+

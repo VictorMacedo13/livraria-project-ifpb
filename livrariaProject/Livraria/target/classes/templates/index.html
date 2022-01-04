@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head th:fragment="index-head">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+	    <meta charset="UTF-8">
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	    <script>src="https://kit.fontawesome.com/le592b5726.js"</script>
+	    <link href="https://kit-pro.fontawesome.com/releases/v5.15.4/css/pro.min.css" rel="stylesheet">
+	    <link rel="stylesheet" th:href="@{/style/index.css}">
+	    <title>Livraria</title>
+	</head>
+	<body>
+		<header th:fragment="index-header">
+			<div class="sidebar">
+				<div class="logo">
+                	<i class="fas fa-book-open" ></i>
+                	<h1>Livraria</h1>
+            	</div>
+            	
+            	<div class="menu">
+                	<ul>
+	                    <li class="menu-nav"><a class="menu-nav" href="/home">INÍCIO</a></li>
+	                    <li class="menu-nav"> 
+	                    <span class="menu-nav"  onclick="mostrar('pai')" href="" >CATEGORIAS</span>
+	                    <ul class="submenu" id="pai" >
+	                    	<li><a  th:href="@{/search/categoria(pesquisa=${categoria.nome})}" th:each="categoria: ${categorias}" th:text="${categoria.nome}">categoria A</a></li>
+                        </ul>
+                    	</li>
+                    	<li class="menu-nav"><a class="menu-nav" href="/perfil">MEU PERFIL</a></li>
+                    	<span sec:authorize="hasAuthority('ROLE_ADMIN')" class="menu-nav"  onclick="mostrar('mae')" href="" >ADMINISTRAÇÃO</span>
+                    	<ul class="submenu" id="mae" >
+	                    	<li><a href="/gerenciar-autores">Gerenciar Autores</a></li>
+	                    	<li><a href="/gerenciar-livros">Gerenciar Livros</a></li>
+	                    	<li><a href="/gerenciar-estoque">Gerenciar Estoque</a></li>
+	                    	<li><a href="/gerenciar-categorias">Gerenciar Categorias</a></li>
+	                    	<li><a href="/gerenciar-editoras">Gerenciar Editoras</a></li>
+	                    	<li><a href="/cancelar-pedido">Cancelar Pedido</a></li>
+	                    	<li><a href="/gerenciar-pagamento">Gerenciar Forma de pagamento</a></li>
+                        </ul>
+                	</ul>
+            	</div>
+			</div>
+		</header>
+		
+		<form class="cabecalho" action="/search" method="get" th:fragment="index-form">
+	        <div class="search-box">
+	            <input class="search-bar" type="text" name="pesquisa" placeholder=" Pesquisar livro"></input>
+	            <button class="search-button" type="submit" ><i class="fas fa-search"></i></button>
+	        </div>
+	        <li class="login">
+	        		<a sec:authorize="isAuthenticated()" href="/logout" class="entrar-button"><i class="fal fa-sign-in"></i> Sair</a>
+                	<a sec:authorize="!isAuthenticated()"  href="/login" class="entrar-button"><i class="fal fa-sign-in"></i> Entrar</a>
+            	</li>
+    	</form>
+    	
+    	<div class="promo" th:if="${livrosMaisBaratos != null}">
+    		<div class="promo-titulo">
+    			<h2>Livros Mais Baratos disponíveis</h2>
+    		</div>
+    		<div class="livros">
+    			<div class="livro" th:each="livro: ${livrosMaisBaratos}" th:title="${livro.titulo}">
+					<a th:href="@{/livro-info(ISBN=${livro.ISBN})}">
+						<img class="capa" th:src="${livro.capa}" alt="">
+					</a>
+		            <span class="titulo"th:text="${livro.titulo}" >Titulo do Livro</span>
+		            <div class="preco">
+		            	<span class="rs">R$</span>
+		            	<span class="preco" th:text="${livro.preco}">RS:00.00</span>
+		            </div>
+		        </div> 
+    		</div>
+    	</div>
+    	
+    	<main> 
+    		
+	    	<h3>Últimos lancamentos:</h3>
+    		<div class="main">    		
+		        <div class="livro" th:each="livro: ${livros}" th:title="${livro.titulo}">
+					<a th:href="@{/livro-info(ISBN=${livro.ISBN})}">
+						<img class="capa" th:src="${livro.capa}" alt="">
+					</a>
+		            <span class="titulo"th:text="${livro.titulo}" >Titulo do Livro</span>
+		            <div class="preco">
+		            	<span class="rs">R$</span>
+		            	<span class="preco" th:text="${livro.preco}">RS:00.00</span>
+		            </div>
+		        </div> 
+    		</div>
+    			
+
+
+    	</main>
+	
+		<a th:fragment="index-carrinho" class="carrinho-button" th:href="@{/carrinho-compras}"><i class="fas fa-shopping-cart"></i></a>
+		
+		<script th:fragment="index-script">
+	        function mostrar(el){
+	           var display = document.getElementById(el).style.display;
+	          
+	            if(display == "none" || display == "")
+	                document.getElementById(el).style.display = 'block';
+	            else
+	                document.getElementById(el).style.display = 'none';
+	        }
+    	</script>
+	
+	</body>
