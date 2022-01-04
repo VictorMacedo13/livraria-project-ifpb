@@ -17,7 +17,7 @@ Nesta fase será feita as regras de negócio, uma interface e a integração com
 Nesta etapa será desenvolvido uma interface Web usando um single page application e uma API REST que fornecerá os serviços.
 
 ## Execução do Sistema
-  - Clone este [repositório] do github na seu computador
+  - Clone este [repositório] do github no seu computador
   - Crie um banco de dados MySQL com nome de livraria
   - Execute ifpb_monteiro_dac_2021_2_grupo_1/livrariaProject/Livraria/src/main/java/com/example/livraria/LivrariaApplication.java
 
